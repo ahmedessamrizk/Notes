@@ -5,9 +5,150 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1F2833;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.fa-check , .fa-xmark
+{
+  right: 15px;
+  top: 10px;
+  font-size: 20px;
+  /* display: none; */
+}
+.fa-check
+{
+  color: green;
+}
+.fa-xmark
+{
+  color: red;
+}
+.checked-right
+{
+    border: 2px solid greenyellow;
+}
+.checked-wrong
+{
+    border: 2px solid red;
+}
+.button-disabled
+{
+  background-color: gray !important;
+  border-color: gray !important;
+}
+.wrong-input
+{
+  font-size: 14px !important;
+}
+#tsparticles
+{
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+}
+.sign-up-page
+{
+    height: 92vh;
+}
+
+.form-control:focus {
+    border-color: transparent !important;
+    box-shadow: none;
+}
+
+/* Animation for input Fields */
+.floating-label-group {
+	position: relative;
+	margin-top: 15px;
+	margin-bottom: 0px;
+
+	
+}
+.floating-label-group input:focus ~ .floating-label,
+	input:not(:focus):valid ~ .floating-label {
+		top: -25px;
+		bottom: 0px;
+		left: 0px;
+		font-size: 14px;
+		opacity: 1;
+		color: #fff;
+}
+
+
+
+.floating-label {
+  font-size: 13px;
+  color: grey;
+  position: absolute;
+  pointer-events: none;
+  top: 9px;
+  left: 12px;
+  transition: all 0.3s ease;
+}
+.row {
+	margin-top: 50px;
+}
+.form-control:focus {
+  border: 1px solid #ced4da !important;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+.spin
+{
+  z-index: 100;
+}
+.btnMain
+{
+  border: 1px solid #66FCF1;
+  color: white;
+  background-color: transparent;
+  display: inline-block;
+  transition: 0.3s;
+  border-radius: 0%;
+  font-weight: 20;
 }
