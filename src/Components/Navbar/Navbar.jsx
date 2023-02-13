@@ -17,7 +17,7 @@ return <>
             crrUser?
             <>
                 <li className="nav-item">
-                    <p className="text-warning userName d-inline" >{crrUser.first_name + " " + crrUser.last_name + " "}</p>
+                    <p className="text-warning userName d-inline" >{crrUser?.user.first_name + " " + crrUser?.user.last_name + " "}</p>
                 </li>
                 <li className="ms-2 nav-item logout">
                     <a className="nav-link" aria-current="page" href="#" onClick={ removeUser }>Logout</a>
