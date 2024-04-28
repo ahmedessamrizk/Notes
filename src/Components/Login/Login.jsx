@@ -28,7 +28,15 @@ export default function Login({ currentUser }) {
       email: Joi.string()
         .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
         .required(),
-      password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
+      password: Joi.string()
+        .pattern(
+          new RegExp(
+            /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+          )
+        )
+        .messages({
+          "string.pattern.base": `Minimum eight, at least one uppercase letter, one lowercase letter, one number and one special character`,
+        }),
     });
     let joiResponse = schema.validate(newUser, { abortEarly: true });
     if (joiResponse.error) {

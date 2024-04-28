@@ -34,7 +34,15 @@ export default function Signup() {
         .required()
         .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
         .required(),
-      password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
+      password: Joi.string()
+        .pattern(
+          new RegExp(
+            /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+          )
+        )
+        .messages({
+          "string.pattern.base": `Minimum eight, at least one uppercase letter, one lowercase letter, one number and one special character`,
+        }),
       age: Joi.number().min(12).max(80).required(),
     });
     let joiResponse = schema.validate(newUser, { abortEarly: true });
@@ -186,12 +194,12 @@ export default function Signup() {
                         autoFocus
                         required
                         onChange={getUser}
-                        typeof="password"
+                        type="password"
                         className="form-control"
                         id="password"
                       />{" "}
-                      <label className="floating-label">Password</label>{" "}
-                      <i className="fa-solid position-absolute"></i>{" "}
+                      {/* <label className="floating-label">Password</label>{" "} */}
+                      {/* <i className="fa-solid position-absolute"></i>{" "} */}
                       <label className="floating-label">Password</label>{" "}
                       <p className="text-danger wrong-input mb-2" id="password">
                         {getError("password")}
